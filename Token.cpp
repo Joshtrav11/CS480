@@ -1,16 +1,16 @@
 #include "Token.h"
+#include "constants.h"
 
-Token::Token()
+Token::Token(int t, std::string v, int ln)
 {
-    /*
-    type = "\0";
-    id = '\0';
-    value = -1;
-    lineNum = -1;
-    */
+    type = t;
+    value = v;
+    lineNum = ln;
 }
 
 void Token::printToken()
 {
-    printf("Hello World\n");
+    std::cout << "Type: " << intToString(getType()) <<
+    "\nValue: " << getValue() <<
+    "\nLine Number: " << getLineNum() << std::endl;
 }

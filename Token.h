@@ -8,21 +8,18 @@
 class Token
 {
   private:
-    std::string type;
-    std::string Id;
+    int type;
+    std::string value;
     int lineNum;
-    int value;
 
   public:
-    Token();
-    void setType(std::string t) {type = t;}
-    void setId(std::string i) {Id = i;}
-    void setLineNum(int ln) {lineNum = ln;}
-    void setValue(int v) {value = v;}
-    std::string getType() {return type;}
-    std::string getId() {return Id;}
+    Token(int t, std::string v, int ln);
+    void setType(int t) {type = t;}
+    void setValue(std::string v) {value = v;}
+    //void setLineNum(int ln) {lineNum = ln;}
+    int getType() {return type;}
+    std::string getValue() {return value;}
     int getLineNum() {return lineNum;}
-    int getValue() {return value;}
     void printToken();
 };
 

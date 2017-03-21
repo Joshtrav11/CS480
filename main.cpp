@@ -1,17 +1,19 @@
 
 #include "Scanner.cpp"
 #include "Token.cpp"
+#include "constants.h"
+#include <deque>
 
 int main(int argc, char **argv)
 {
-
-    //std::cout << argv[1] << std::endl;
     
     Scanner *s = new Scanner(argv[1]);
-    s->printStuff();
-    Token *tok = new Token();
-    tok->printToken();
-    
+    Token *current;
+    int size = s->getTokenSize();
+
+    for(int i = 0 ; i < size; i++) {
+        current = s->getTokenAndPrint();
+    } 
 
     return 0;
 }
