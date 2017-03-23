@@ -41,7 +41,9 @@ public:
                 Token *t = toks.at(index);
                 if (t->getType() == INT)
                 {
-                    index += 3;
+                    index++;
+                    index++;
+                    index++;
                 }
                 else
                 {
@@ -64,8 +66,11 @@ public:
 
         C2 = new TreeNode();
         C2->nodeType = STATEMENT_LIST;
-
         C2->createSiblingtree(toks);
+    }
+    else if (nodeType == STATEMENT_LIST)
+    {
+        createSiblingtree(toks);
     }
     else if (nodeType == PARAMETER_LIST)
     {
@@ -83,10 +88,6 @@ public:
             std::cout << "Can't find the type specifier for node: " << typeSpecifier << std::endl;
             exit(1);
         }
-    }
-    else if (nodeType == STATEMENT_LIST)
-    {
-        createSiblingtree(toks);
     }
     else
     {
