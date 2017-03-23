@@ -3,6 +3,11 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include <deque>
+#include "Token.h"
+
+int findIndex(int value,std::deque<Token *> &toks);
+//void subDeque (std::deque<Token *> &OGtoks, std::deque<Token *> &sideToks, int amount);
 
 enum Constants
 {
@@ -282,5 +287,22 @@ bool hasEnding(std::string const &fullString, std::string const &ending)
     {
         return false;
     }
+}
+int findIndex(int value,std::deque<Token *> &toks){
+    Token *current;
+    for(int index = 0; index < toks.size(); index++ ) {
+        current = toks.at(index);
+        if(current->getType() == value) {
+            return index;
+        }
+    }
+    return -1;
+}
+void subDeque (std::deque<Token *> &OGtoks, std::deque<Token *> &sideToks, int amount) {
+    for(int i = 0; i < amount; i++) {
+        sideToks.push_back(OGtoks.front());
+        OGtoks.pop_front();
+    }
+    return;
 }
 #endif
